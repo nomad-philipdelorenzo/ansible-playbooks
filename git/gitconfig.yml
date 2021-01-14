@@ -1,16 +1,19 @@
 ---
 - name: git config
   hosts: all
+  vars:
+    git:
+      name: Karl Dreher
+      alias-acp: '!git add .; git commit; git push'
   tasks:
-
   - name: Set git user.name
     community.general.git_config:
       name: user.name
       scope: global
-      value: Karl Dreher
+      value: "{{ git['name'] }}"
 
   - name: Set ACP alias
     community.general.git_config:
       name: alias.acp
       scope: global
-      value: '!git add .; git commit; git push'
+      value: "{{ git['alias-acp'] }}"
