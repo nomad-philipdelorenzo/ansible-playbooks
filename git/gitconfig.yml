@@ -4,13 +4,13 @@
   tasks:
 
   - name: Set git user.name
-    git_config:
+    community.general.git_config:
       name: user.name
       scope: global
       value: Karl Dreher
 
   - name: Set ACP alias
-    git_config:
+    community.general.git_config:
       name: alias.acp
       scope: global
       value: '!git add .; git commit; git push'
