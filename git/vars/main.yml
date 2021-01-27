@@ -1,0 +1,5 @@
+---
+# vars file for git
+git:
+  alias-acp: '!git add .; git commit; git push'
+  cred-helper: cache

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars_files: vars/main.yml
+  become: no
+  tasks:
+  - include: tasks/main.yml
