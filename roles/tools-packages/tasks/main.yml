@@ -1,0 +1,9 @@
+---
+# tasks file for tools-packages
+- name: Install jq
+  become: yes
+  package:
+    name: jq
+    state: present
+  tags: 
+  - packages
