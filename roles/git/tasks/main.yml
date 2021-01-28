@@ -1,26 +1,36 @@
 ---
 # tasks file for git
+- name: Install git
+  include: install.yml
+
 - name: Set git user.name
   community.general.git_config:
     name: user.name
     scope: global
     value: "{{ firstname }} {{ lastname }}"
+  tags:
+  - preferences
     
 - name: Set git user.email
   community.general.git_config:
     name: user.email
     scope: global
     value: "{{ email }}"
+  tags:
+  - preferences
 
 - name: Set credential helper
   community.general.git_config:
     name: credential.helper
     scope: global
     value: "{{ git['cred-helper'] }}"
+  tags:
+  - preferences
 
 - name: Set ACP alias
   community.general.git_config:
     name: alias.acp
     scope: global
     value: "{{ git['alias-acp'] }}"
-
+  tags:
+  - preferences
