@@ -7,3 +7,11 @@
     state: present
   tags: 
   - packages
+
+- name: Install diceware
+  become: yes
+  package:
+    name: diceware
+    state: present
+  tags: 
+  - packages
