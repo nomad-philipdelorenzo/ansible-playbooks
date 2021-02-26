@@ -34,3 +34,11 @@
     value: "{{ git['alias-acp'] }}"
   tags:
   - preferences
+
+- name: Set AC alias
+  community.general.git_config:
+    name: alias.ac
+    scope: global
+    value: "{{ git['alias-ac'] }}"
+  tags:
+  - preferences
