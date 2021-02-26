@@ -15,4 +15,4 @@ Some tags are used at the play level to describe what the tasks are doing.  They
 Current tags in use: 
 > packages
 >
-> preferences
+> prefs

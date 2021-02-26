@@ -9,7 +9,7 @@
     scope: global
     value: "{{ firstname }} {{ lastname }}"
   tags:
-  - preferences
+  - prefs
     
 - name: Set git user.email
   community.general.git_config:
@@ -17,7 +17,7 @@
     scope: global
     value: "{{ email }}"
   tags:
-  - preferences
+  - prefs
 
 - name: Set credential helper
   community.general.git_config:
@@ -25,7 +25,7 @@
     scope: global
     value: "{{ git['cred-helper'] }}"
   tags:
-  - preferences
+  - prefs
 
 - name: Set ACP alias
   community.general.git_config:
@@ -33,7 +33,7 @@
     scope: global
     value: "{{ git['alias-acp'] }}"
   tags:
-  - preferences
+  - prefs
 
 - name: Set AC alias
   community.general.git_config:
@@ -41,4 +41,4 @@
     scope: global
     value: "{{ git['alias-ac'] }}"
   tags:
-  - preferences
+  - prefs
