@@ -16,11 +16,18 @@
   tags: 
   - packages
 
-- name: Install xclip
+- name: Install zsh
   become: yes
   package:
-    name: xclip
+    name: zsh
     state: present
-  when: ansible_facts['os_family'] == "Debian"
+  tags:
+  - packages
+
+- name: Install nano
+  become: yes
+  package:
+    name: nano
+    state: present
   tags:
   - packages
