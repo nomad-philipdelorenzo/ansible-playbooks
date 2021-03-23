@@ -1,33 +1,28 @@
 ---
 # tasks file for tools-packages
-- name: Install jq
+- name: tools-packages
+  block:
+  
+  - name: Install jq
+    package:
+      name: jq
+      state: present
+
+  - name: Install diceware
+    package:
+      name: diceware
+      state: present
+
+  - name: Install zsh
+    package:
+      name: zsh
+      state: present
+
+  - name: Install nano
+    package:
+      name: nano
+      state: present
+
   become: yes
-  package:
-    name: jq
-    state: present
   tags: 
-  - packages
-
-- name: Install diceware
-  become: yes
-  package:
-    name: diceware
-    state: present
-  tags: 
-  - packages
-
-- name: Install zsh
-  become: yes
-  package:
-    name: zsh
-    state: present
-  tags:
-  - packages
-
-- name: Install nano
-  become: yes
-  package:
-    name: nano
-    state: present
-  tags:
   - packages
