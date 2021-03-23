@@ -1,5 +1,8 @@
 ---
 - hosts: all
   roles: 
-    - tools-packages
-    - git
+    - role: tools-packages
+    - role: git
+    - role: omz-zshrc
+      tags: 
+      - prefs
