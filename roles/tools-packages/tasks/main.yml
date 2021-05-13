@@ -16,4 +16,11 @@
   tags: 
     - packages
   
+- name: Conduct Safe Update
+  apt:
+    upgrade: safe
+  become: yes
+  tags:
+    - never
+    - update
   

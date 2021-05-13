@@ -16,3 +16,7 @@ Current tags in use:
 > packages
 >
 > prefs
+>
+> update
+
+`update` is a special tag, which does not run by default.  It must be specified with the `--tags` parameter.
