@@ -1,9 +1,13 @@
 ---
 # tasks file for omz-zshrc
+- name: Get Home Directory
+  command: echo ~
+  register: homedir
+  changed_when: false 
 
 - name: Check that OMZ folder exists
   stat:
-    path: /home/{{ ansible_user_id }}/.oh-my-zsh
+    path: "{{ homedir.stdout }}/.oh-my-zsh"
   register: omz_folder
 
 - name: debug.zsh
@@ -19,7 +23,7 @@
 - name: install .zshrc
   template:
     src: zshrc.j2
-    dest: /home/{{ ansible_user_id }}/.zshrc
+    dest: "{{ homedir.stdout }}/.zshrc"
   when: "'zsh' in ansible_facts.packages and omz_folder.stat.exists and omz_folder.stat.isdir"
 
 

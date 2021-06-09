@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/{{ ansible_user_id }}/.oh-my-zsh"
+export ZSH="{{ homedir.stdout }}/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -61,7 +61,7 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -107,3 +107,17 @@ if [ $(command -v nano) ]
     then
         export EDITOR=$(which nano)
 fi
+
+#print available aliases on shell start.
+tput setaf 4
+echo "Available Git Aliases: (usage: git <alias>)"
+tput setaf 3
+if (git config --list | grep -q alias); then
+
+    git config --list | grep alias | while read line
+        do
+            echo $line | sed 's/alias./\t/' | sed 's/=/\t/g'
+        done
+fi
+#revert colors
+tput sgr 0
