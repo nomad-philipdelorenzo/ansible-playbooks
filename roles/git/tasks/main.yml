@@ -19,26 +19,11 @@
   tags:
   - prefs
 
-- name: Set credential helper
+- name: Set git config
   community.general.git_config:
-    name: credential.helper
+    name: "{{ item.name }}"
     scope: global
-    value: "{{ git['cred-helper'] }}"
-  tags:
-  - prefs
-
-- name: Set ACP alias
-  community.general.git_config:
-    name: alias.acp
-    scope: global
-    value: "{{ git['alias-acp'] }}"
-  tags:
-  - prefs
-
-- name: Set AC alias
-  community.general.git_config:
-    name: alias.ac
-    scope: global
-    value: "{{ git['alias-ac'] }}"
+    value: "{{ item.value }}"
+  with_items:  "{{ gitconfig }}"
   tags:
   - prefs
