@@ -1,0 +1,19 @@
+---
+# tasks file for terraform-cli install
+
+- name: Check if terraform is installed
+  file: 
+    path: "{{  terraform_path  }}terraform"
+    state: file
+  register: terraform_installed
+  failed_when: false
+
+- name: Check terraform version
+  shell: terraform --version -json | jq .terraform_version -r
+  register: terraform_installed_version
+  when: terraform_installed.state == "file"
+  changed_when: false
+
+- name: Install terraform
+  include: install.yml
+  when: (terraform_installed.state == "file" and terraform_installed_version.stdout != terraform_version) or terraform_installed.state == "absent"

@@ -2,6 +2,7 @@
 - hosts: all
   roles: 
     - role: tools-packages
+    - role: terraform-cli
     - role: git
     - role: omz-zshrc
       tags: 

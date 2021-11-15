@@ -1,0 +1,5 @@
+---
+# vars file for terraform-cli
+terraform_version: "1.0.11"
+terraform_arch: "amd64"
+terraform_path: /usr/bin/

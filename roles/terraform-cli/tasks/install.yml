@@ -1,0 +1,14 @@
+---
+#install terraform
+  
+- name: download Terraform binary
+  ansible.builtin.get_url:
+    url: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{  terraform_version  }}_linux_{{  terraform_arch  }}.zip"
+    dest: "/tmp/terraform_{{  terraform_version  }}_linux_{{  terraform_arch  }}.zip"
+  register: terraform_download
+
+- name: Unzip Terraform download
+  unarchive: 
+    src: "/tmp/terraform_{{  terraform_version  }}_linux_{{  terraform_arch  }}.zip"
+    dest: "{{  terraform_path  }}"
+  become: yes

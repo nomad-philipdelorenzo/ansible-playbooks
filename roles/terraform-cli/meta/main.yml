@@ -1,0 +1,5 @@
+---
+dependencies: 
+  - role: tools-packages
+    tags: 
+      - jq

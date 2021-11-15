@@ -1,14 +1,13 @@
 ---
 # tasks file for tools-packages
 
-- name: Package installs
+- name: Install misc packages
   package: 
     name: "{{ packages }}"
     state: present
   become: yes
   vars: 
     packages:
-      - jq
       - diceware
       - zsh
       - nano
@@ -16,7 +15,16 @@
       - zip
   tags: 
     - packages
-  
+
+- name: Install jq
+  package:
+    name: jq
+    state: present
+  become: yes
+  tags:
+    - packages
+    - jq
+
 - name: Conduct Safe Update
   apt:
     upgrade: safe
