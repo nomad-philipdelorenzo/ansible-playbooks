@@ -1,0 +1,9 @@
+---
+- name: Gather the package facts
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Get Home Directory
+  command: echo ~
+  register: homedir
+  changed_when: false

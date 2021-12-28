@@ -1,9 +1,5 @@
 ---
 # tasks file for omz-zshrc
-- name: Get Home Directory
-  command: echo ~
-  register: homedir
-  changed_when: false 
 
 - name: Check that OMZ folder exists
   stat:
