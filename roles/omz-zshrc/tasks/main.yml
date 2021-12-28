@@ -20,10 +20,13 @@
     msg: "OMZ folder exists"
   when: omz_folder.stat.exists and omz_folder.stat.isdir
 
+- name: Install venv plugin
+  git:
+    repo: https://github.com/glostis/venv-wrapper.git
+    dest:  "{{ homedir.stdout }}/.oh-my-zsh/plugins/venv-wrapper"
+
 - name: install .zshrc
   template:
     src: zshrc.j2
     dest: "{{ homedir.stdout }}/.zshrc"
   when: "'zsh' in ansible_facts.packages and omz_folder.stat.exists and omz_folder.stat.isdir"
-
-

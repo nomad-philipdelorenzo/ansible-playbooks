@@ -101,6 +101,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# venv plugin
+if [ -f $HOME/.oh-my-zsh/plugins/venv-wrapper/venv-wrapper.plugin.zsh ]; then
+        source $HOME/.oh-my-zsh/plugins/venv-wrapper/venv-wrapper.plugin.zsh
+fi
 
 #set editor for Git and anything else
 if [ $(command -v nano) ]
