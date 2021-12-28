@@ -1,5 +1,3 @@
 ---
 dependencies: 
-  - role: tools-packages
-    tags: 
-      - jq
+  - role: jq

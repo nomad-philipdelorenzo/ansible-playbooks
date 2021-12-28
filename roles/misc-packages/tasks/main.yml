@@ -1,5 +1,5 @@
 ---
-# tasks file for tools-packages
+# tasks file for misc-packages
 
 - name: Install misc packages
   package: 
@@ -15,15 +15,6 @@
       - zip
   tags: 
     - packages
-
-- name: Install jq
-  package:
-    name: jq
-    state: present
-  become: yes
-  tags:
-    - packages
-    - jq
 
 - name: Conduct Safe Update
   apt:

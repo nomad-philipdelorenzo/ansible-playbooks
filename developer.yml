@@ -1,7 +1,8 @@
 ---
 - hosts: all
   roles: 
-    - role: tools-packages
+    - role: misc-packages
+    - role: jq
     - role: terraform-cli
     - role: git
     - role: omz-zshrc

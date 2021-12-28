@@ -1,0 +1,10 @@
+---
+# tasks file for jq
+
+- name: Install jq
+  package:
+    name: jq
+    state: present
+  become: yes
+  tags:
+    - packages
