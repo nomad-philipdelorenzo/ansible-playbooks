@@ -71,7 +71,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git venv-wrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,10 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# venv plugin
-if [ -f $HOME/.oh-my-zsh/plugins/venv-wrapper/venv-wrapper.plugin.zsh ]; then
-        source $HOME/.oh-my-zsh/plugins/venv-wrapper/venv-wrapper.plugin.zsh
-fi
 
 #set editor for Git and anything else
 if [ $(command -v nano) ]
