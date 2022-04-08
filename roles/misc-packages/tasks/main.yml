@@ -5,22 +5,12 @@
   package: 
     name: "{{ packages }}"
     state: present
-  become: yes
   vars: 
     packages:
       - diceware
-      - zsh
       - nano
       - rsync
       - zip
   tags: 
     - packages
 
-- name: Conduct Safe Update
-  apt:
-    upgrade: safe
-  become: yes
-  tags:
-    - never
-    - update
-  

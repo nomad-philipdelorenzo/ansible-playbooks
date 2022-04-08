@@ -5,6 +5,5 @@
   package:
     name: jq
     state: present
-  become: yes
   tags:
     - packages

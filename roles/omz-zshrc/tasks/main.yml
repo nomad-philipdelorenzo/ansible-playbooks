@@ -6,11 +6,6 @@
     path: "{{ homedir.stdout }}/.oh-my-zsh"
   register: omz_folder
 
-- name: debug.zsh
-  debug:
-    msg: "ZSH is installed"
-  when: "'zsh' in ansible_facts.packages"
-
 - name: debug.omz
   debug:
     msg: "OMZ folder exists"
@@ -25,4 +20,4 @@
   template:
     src: zshrc.j2
     dest: "{{ homedir.stdout }}/.zshrc"
-  when: "'zsh' in ansible_facts.packages and omz_folder.stat.exists and omz_folder.stat.isdir"
+  when: "omz_folder.stat.exists and omz_folder.stat.isdir"

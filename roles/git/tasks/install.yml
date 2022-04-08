@@ -1,7 +1,6 @@
 ---
 #install git
 - name: Install git
-  become: yes
   package:
     name: git
     state: present
