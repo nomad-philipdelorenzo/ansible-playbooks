@@ -1,7 +1,11 @@
 ---
 # tasks file for git
 - name: Install git
-  include: install.yml
+  package:
+    name: git
+    state: present
+  tags:
+  - packages
 
 - name: Set git user.name
   community.general.git_config:
@@ -10,7 +14,7 @@
     value: "{{ firstname }} {{ lastname }}"
   tags:
   - prefs
-    
+
 - name: Set git user.email
   community.general.git_config:
     name: user.email

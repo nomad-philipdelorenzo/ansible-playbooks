@@ -1,8 +1,0 @@
----
-#install git
-- name: Install git
-  package:
-    name: git
-    state: present
-  tags: 
-  - packages
