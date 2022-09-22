@@ -24,6 +24,7 @@
       - venv-wrapper
       - dotenv
       - terraform
+      - nvm
 
 - name: install .zshrc
   template:
