@@ -18,16 +18,3 @@ if [ $(command -v nano) ]
         export EDITOR=$(which nano)
 fi
 
-#print available aliases on shell start.
-tput setaf 4
-echo "Available Git Aliases: (usage: git <alias>)"
-tput setaf 3
-if (git config --list | grep -q alias); then
-
-    git config --list | grep alias | while read line
-        do
-            echo $line | sed 's/alias./\t/' | sed 's/=/\t/g'
-        done
-fi
-#revert colors
-tput sgr 0

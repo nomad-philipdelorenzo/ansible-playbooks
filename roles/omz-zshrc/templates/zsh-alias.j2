@@ -1,0 +1,25 @@
+function zalias_title(){
+    tput setaf 3
+    echo $1
+    tput sgr 0
+}
+
+function zalias(){
+    zalias_title "Available Git Aliases: (usage: git <alias>)"
+    tput setaf 7
+    if (git config --list | grep -q alias); then
+
+        git config --list | grep alias | while read line
+            do
+                echo $line | sed 's/alias./\t/' | sed 's/=/\t/g'
+            done
+    fi
+    #revert colors
+    tput sgr 0
+    echo ""
+}
+
+tput setaf 3
+echo "Alias help: type 'zalias'"
+echo ""
+tput sgr 0

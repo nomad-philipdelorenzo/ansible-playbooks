@@ -6,17 +6,12 @@
     path: "{{ homedir.stdout }}/.oh-my-zsh"
   register: omz_folder
 
-- name: debug.omz
-  debug:
-    msg: "OMZ folder exists"
-  when: omz_folder.stat.exists and omz_folder.stat.isdir
-
 - name: Install venv plugin
   git:
     repo: https://github.com/glostis/venv-wrapper.git
     dest:  "{{ homedir.stdout }}/.oh-my-zsh/plugins/venv-wrapper"
 
-- name:
+- name: Set OMZ plugins to be enabled
   set_fact:
     # To enable more omz plugins, add them here.
     omz_plugin_list:
@@ -30,4 +25,10 @@
   template:
     src: zshrc.j2
     dest: "{{ homedir.stdout }}/.zshrc"
+  when: "omz_folder.stat.exists and omz_folder.stat.isdir"
+
+- name: Install alias file
+  template:
+    src: zsh-alias.j2
+    dest: "{{ homedir.stdout }}/.oh-my-zsh/custom/zsh-aliases.zsh"
   when: "omz_folder.stat.exists and omz_folder.stat.isdir"
