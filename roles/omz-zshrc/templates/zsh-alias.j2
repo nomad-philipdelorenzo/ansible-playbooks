@@ -1,3 +1,5 @@
+alias stash="git stash"
+
 function cleanup-branch(){
     branch_to_delete=$(git branch --show-current)
     # default branch not main or master currently unsupported.
@@ -33,7 +35,9 @@ function zalias(){
     # Edit this manually when new functions/aliases are added here
     zalias_title "Other Custom Aliases"
     tput setaf 7
+
     echo "cleanup-branch\tCleanup current git branch and return to master/main"
+    echo "stash\t\tgit stash"
 
     #revert colors
     tput sgr 0
