@@ -6,7 +6,7 @@ function cleanup-branch(){
         echo "Cannot cleanup $branch_to_delete branch."
     else
         git checkout $dest_branch
-        git branch -d $branch_to_delete
+        git branch -d $branch_to_delete -q
         git pull
     fi
 }
