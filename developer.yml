@@ -1,6 +1,7 @@
 ---
 - hosts: all
   roles: 
+    - role: brew
     - role: misc-packages
     - role: jq
     - role: git

@@ -7,8 +7,6 @@
     state: present
   vars: 
     packages:
-      - diceware
-      - nano
       - rsync
       - zip
   tags: 
